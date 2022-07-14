@@ -1,0 +1,22 @@
+<p>planet-settings works!</p>
+<mat-form-field class="example-full-width" appearance="fill" [formGroup]="myControl">
+  <mat-label>Planet</mat-label>
+  <input
+    type="text"
+    name="planet"
+    placeholder="Pick Planet"
+    aria-label="Number"
+    matInput
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option
+      [formControlName]="name"
+      *ngFor="let planet of planets"
+      [value]="planet"
+      (click)="selectPlanet(planet)"
+    >
+      {{ planet.name }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

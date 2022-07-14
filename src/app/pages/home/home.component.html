@@ -1,0 +1,21 @@
+<form class="example-form" (ngSubmit)="show()" [formGroup]="myControl">
+  <app-planet-settings
+    [planets]="planets"
+    [name]="'planet1'"
+    formControlName="planet1"
+    (newItemEvent)="selectPlanet($event)"
+  ></app-planet-settings>
+  <app-planet-settings
+    [planets]="planets"
+    [name]="'planet2'"
+    formControlName="planet2"
+    (newItemEvent)="selectPlanet($event)"
+  ></app-planet-settings>
+  <app-planet-settings
+    [planets]="planets"
+    [name]="'planet3'"
+    formControlName="planet"
+    (newItemEvent)="selectPlanet($event)"
+  ></app-planet-settings>
+  <button type="submit">save</button>
+</form>
