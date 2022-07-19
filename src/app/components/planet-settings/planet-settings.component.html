@@ -1,22 +1,47 @@
-<p>planet-settings works!</p>
-<mat-form-field class="example-full-width" appearance="fill" [formGroup]="myControl">
-  <mat-label>Planet</mat-label>
-  <input
-    type="text"
-    name="planet"
-    placeholder="Pick Planet"
-    aria-label="Number"
-    matInput
-    [matAutocomplete]="auto"
-  />
-  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-    <mat-option
-      [formControlName]="name"
-      *ngFor="let planet of planets"
-      [value]="planet"
-      (click)="selectPlanet(planet)"
+<div>
+  <h2>{{ planetNumber }}</h2>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Planet</mat-label>
+    <input
+      type="text"
+      name="planet"
+      placeholder="Pick Planet"
+      aria-label="Number"
+      [value]="myControl"
+      required="true"
+      matInput
+      [(ngModel)]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let planet of planets"
+        [value]="planet.name"
+        (click)="selectPlanet(planet)"
+      >
+        {{ planet.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="radio-group"
+    [(ngModel)]="myControlVehicles"
+    *ngIf="myControl"
+  >
+    <mat-radio-button
+      class="example-radio-button"
+      *ngFor="let vehicle of vehicles"
+      [disabled]="
+        !vehicle.total_no ||
+        myControlVehicles === vehicle.name ||
+        myPlanet.distance > vehicle.max_distance
+      "
+      [value]="vehicle.name"
+      [checked]=""
+      (click)="selectVehicle(vehicle)"
     >
-      {{ planet.name }}
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
+      {{ vehicle.name }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

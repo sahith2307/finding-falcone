@@ -1,0 +1,18 @@
+<div class="display-center">
+  <div *ngIf="results.status === 'success'; else failed" class="text-center">
+    <h1>
+      Success! Congratulations on Finding Falcone.King Shan 🤴 is mighty pleased
+      😇😇 .
+    </h1>
+    <h2>Time Taken: {{ results.timeTaken }}</h2>
+    <h2>planet Found: {{ results.planet_name }}</h2>
+  </div>
+  <ng-template #failed>
+    <div>
+      <h1>Failed! on Finding Falcone.King Shan 🤴 is Disappointed 😞😞.</h1>
+    </div>
+  </ng-template>
+  <button type="button" class="btn btn-warning" (click)="startAgain()">
+    Start Again
+  </button>
+</div>

@@ -10,9 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { PlanetSettingsComponent } from '../components/planet-settings/planet-settings.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
-  declarations: [HomeComponent,PlanetSettingsComponent],
+  declarations: [HomeComponent, PlanetSettingsComponent, ResultComponent],
 
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { PlanetSettingsComponent } from '../components/planet-settings/planet-se
     MatInputModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatRadioModule,
   ],
 })
 export class PagesModule {}

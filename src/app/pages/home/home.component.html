@@ -1,21 +1,54 @@
-<form class="example-form" (ngSubmit)="show()" [formGroup]="myControl">
-  <app-planet-settings
-    [planets]="planets"
-    [name]="'planet1'"
-    formControlName="planet1"
-    (newItemEvent)="selectPlanet($event)"
-  ></app-planet-settings>
-  <app-planet-settings
-    [planets]="planets"
-    [name]="'planet2'"
-    formControlName="planet2"
-    (newItemEvent)="selectPlanet($event)"
-  ></app-planet-settings>
-  <app-planet-settings
-    [planets]="planets"
-    [name]="'planet3'"
-    formControlName="planet"
-    (newItemEvent)="selectPlanet($event)"
-  ></app-planet-settings>
-  <button type="submit">save</button>
+<form
+  class="example-form display-center"
+  (ngSubmit)="submitDestination($event)"
+>
+  <h1>Select Planets You want to search in:</h1>
+  <h2 *ngIf="inputError" class="text-danger center-text">
+    Select all the Planets and Vehicles
+  </h2>
+
+  <div class="planet-container">
+    <app-planet-settings
+      [planets]="planets"
+      [vehicles]="vehicles"
+      [planetNumber]="'Planet-1'"
+      [name]="'planet1'"
+      (planetEmitter)="selectPlanet($event)"
+      (vehicleEmitter)="selectVehicle($event)"
+    ></app-planet-settings>
+    <app-planet-settings
+      [vehicles]="vehicles"
+      [planets]="planets"
+      [planetNumber]="'Planet-2'"
+      [name]="'planet2'"
+      (planetEmitter)="selectPlanet($event)"
+      (vehicleEmitter)="selectVehicle($event)"
+    ></app-planet-settings>
+    <app-planet-settings
+      [vehicles]="vehicles"
+      [planets]="planets"
+      [planetNumber]="'Planet-3'"
+      [name]="'planet3'"
+      (planetEmitter)="selectPlanet($event)"
+      (vehicleEmitter)="selectVehicle($event)"
+    ></app-planet-settings
+    ><app-planet-settings
+      [vehicles]="vehicles"
+      [planets]="planets"
+      [planetNumber]="'Planet-4'"
+      [name]="'planet4'"
+      (planetEmitter)="selectPlanet($event)"
+      (vehicleEmitter)="selectVehicle($event)"
+    ></app-planet-settings>
+  </div>
+  <h1 class="center-text">Time Taken:{{ timeTaken }}</h1>
+  <div class="center-text mr-auto">
+    <button
+      type="submit"
+      class="btn btn-success px-5"
+      [disabled]="buttonDisable"
+    >
+      save
+    </button>
+  </div>
 </form>
