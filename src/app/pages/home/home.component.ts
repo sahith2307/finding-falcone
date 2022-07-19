@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
       .map((each: any) => this.destination[each].vehicleName)
       .filter((each: any) => each !== undefined);
     this.buttonDisable = !(planets.length === 4 && vehicles.length === 4);
-    console.log(this.buttonDisable);
   };
   distanceCalculation = () => {
     const designationKeys = Object.keys(this.destination);
@@ -45,7 +44,6 @@ export class HomeComponent implements OnInit {
       .filter((each) => each);
 
     this.timeTaken = values.reduce((dist1, dist2) => dist1 + dist2, 0);
-    console.log(values);
   };
   removeSelectedPlanet = () => {
     const total: any = Object.keys(this.destination);
@@ -98,7 +96,6 @@ export class HomeComponent implements OnInit {
         })
         .subscribe((res: any) => {
           this.inputError = false;
-          console.log(res);
           this.router.navigate(['/result'], {
             state: { result: { ...res, timeTaken: this.timeTaken } },
           });

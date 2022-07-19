@@ -22,6 +22,5 @@ export class ResultComponent implements OnInit {
 
     this.results = result;
 
-    console.log(this.results);
   }
 }

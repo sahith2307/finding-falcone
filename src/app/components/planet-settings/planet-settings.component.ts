@@ -28,7 +28,6 @@ export class PlanetSettingsComponent implements OnInit {
     .map((each) => each.name);
   selectPlanet = (value: any) => {
     this.myPlanet = value;
-    console.log(this.myPlanet);
     const planet: any = {};
     planet[this.name] = {};
     planet[this.name].planetName = value.name;
